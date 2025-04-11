@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingo - RP Progression</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="index.html" class="back-button">← Back to Leaderboard</a>
+
+<div class="profile">
+    <img src="images/ingo.png" alt="Ingo's Profile Picture">
+    <h1>Ingo</h1>
+	<h2 class="race">Race: C.H.I.N.K. N.I.G.G.A. </h2>
+    <h2 class="rank">Rank: Monkey Trainer</h2>
+    <h3>Current RP: 39000</h3>
+</div>
+
+<div class="graph-section">
+    <h2>RP Progression</h2>
+
+    <div class="timeframe-buttons">
+        <button onclick="updateChart('year')">Year</button>
+        <button onclick="updateChart('trimester')">Trimester</button>
+        <button onclick="updateChart('month')">Month</button>
+        <button onclick="updateChart('week')">Week</button>
+        <button onclick="updateChart('day')">Day</button>
+    </div>
+
+    <canvas id="rpChart"></canvas>
+</div>
+<div class="graph-section">
+    <h2>Race Inclination</h2>
+    <canvas id="raceChart" width="400" height="300"></canvas>
+</div>
+<script src="js/chart.umd.min.js"></script>
+
+<script>
+const ctx = document.getElementById('rpChart').getContext('2d');
+
+const chartData = {
+    year: {
+        labels: ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'],
+        data: [35000, 35500, 36000, 37000, 37500, 38000, 38500, 39000]
+    },
+    trimester: {
+        labels: ['Feb', 'Mar', 'Apr'],
+        data: [38000, 38500, 39000]
+    },
+    month: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        data: [38600, 38750, 38850, 39000]
+    },
+    week: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        data: [38850, 38880, 38900, 38950, 38980, 39000, 39000]
+    },
+    day: {
+        labels: ['9AM', '12PM', '3PM', '6PM', '9PM'],
+        data: [38990, 38995, 38997, 38999, 39000]
+    }
+};
+
+const rpChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: chartData.year.labels,
+        datasets: [{
+            label: 'RP',
+            data: chartData.year.data,
+            borderColor: '#333',
+            borderWidth: 2,
+            fill: false,
+            tension: 0.3
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+function updateChart(timeframe) {
+    rpChart.data.labels = chartData[timeframe].labels;
+    rpChart.data.datasets[0].data = chartData[timeframe].data;
+    rpChart.update();
+}
+const raceCtx = document.getElementById('raceChart').getContext('2d');
+
+const raceChart = new Chart(raceCtx, {
+    type: 'radar',
+    data: {
+        labels: ['N.I.G.G.A', 'American', 'Soviet', 'Tibla', 'C.H.I.N.K.', 'Mexican', 'W.H.I.T.E.'],
+        datasets: [{
+            label: 'Inclination',
+            data: [16, 16, 16, 17, 18, 10, 18], // Change these numbers per player later
+            fill: true,
+            backgroundColor: 'rgba(100, 100, 255, 0.2)',
+            borderColor: 'rgba(100, 100, 255, 1)',
+            pointBackgroundColor: 'rgba(100, 100, 255, 1)'
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            r: {
+                suggestedMin: 0,
+                suggestedMax: 20
+            }
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>
