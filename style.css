@@ -1,0 +1,139 @@
+/* General Site Style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Titles */
+h1 {
+    margin-top: 40px;
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 1.7em;
+    margin-top: 10px;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Back to leaderboard button */
+.back-button {
+    display: inline-block;
+    margin: 20px;
+    text-decoration: none;
+    color: #555;
+    font-size: 1.2em;
+}
+
+/* Leaderboard on index.html */
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: fit-content;
+}
+
+.player img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.player a {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: black;
+}
+
+.player span {
+    font-size: 1.3em;
+    margin-left: 10px;
+    color: #555;
+}
+
+/* Profile page image */
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Race & Rank styling */
+.profile .race, .profile .rank {
+    font-size: 1.3em;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* RP Graph & Spider Graph section */
+.graph-section {
+    margin-top: 30px;
+}
+
+/* Buttons for timeframe */
+.timeframe-buttons {
+    margin: 20px 0;
+}
+
+.timeframe-buttons button {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #eee;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.timeframe-buttons button:hover {
+    background-color: #ddd;
+}
+
+/* Force graphs to be small & centered */
+.graph canvas {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    max-height: 200px;
+}
+.graph-section {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Optional: specific sizes per graph type */
+#rpChart {
+    max-width: 1000px;
+    max-height: 700px;
+}
+
+#raceChart {
+    max-width: 800px;
+    max-height: 800px;
+}
